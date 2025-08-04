@@ -8,6 +8,15 @@ extern "C" {
 }
 
 namespace linalg {
+    struct CPFloatOptStructRAII {
+        optstruct *fpopts;
+
+        CPFloatOptStructRAII() : fpopts(init_optstruct()) {}
+        ~CPFloatOptStructRAII() { free_optstruct(fpopts); }
+
+        operator optstruct*() { return fpopts;}
+    };
+    
     int cpfloat_add(double *X, const double *A, const double *B,
                 std::size_t numelem, optstruct *fpopts);
 
