@@ -50,9 +50,9 @@ namespace linalg {
 
             for (std::size_t i = 0; i < N; ++i) {
                 if constexpr (std::is_same_v<T, double>) {
-                    cpfloat_add(&X.v[i], &v[i], &b.v[i], 1, fpopts);
+                    detail::check(cpfloat_add(&X.v[i], &v[i], &b.v[i], 1, fpopts), "cpfloat_add");
                 } else {
-                    cpfloat_addf(&X.v[i], &v[i], &b.v[i], 1, fpopts);
+                    detail::check(cpfloat_addf(&X.v[i], &v[i], &b.v[i], 1, fpopts), "cpfloat_addf");
                 }
             }
 
@@ -64,9 +64,9 @@ namespace linalg {
 
             for (std::size_t i = 0; i < N; ++i) {
                 if constexpr (std::is_same_v<T, double>) {
-                    cpfloat_mul(&X.v[i], &v[i], &b.v[i], 1, fpopts);
+                    detail::check(cpfloat_mul(&X.v[i], &v[i], &b.v[i], 1, fpopts), "cpfloat_mul");
                 } else {
-                    cpfloat_mulf(&X.v[i], &v[i], &b.v[i], 1, fpopts);
+                    detail::check(cpfloat_mulf(&X.v[i], &v[i], &b.v[i], 1, fpopts), "cpfloat_mulf");
                 }
             }
 
@@ -78,9 +78,9 @@ namespace linalg {
 
             for (std::size_t i = 0; i < N; ++i) {
                 if constexpr (std::is_same_v<T, double>) {
-                    cpfloat_fma(&X.v[i], &v[i], &b.v[i], &c.v[i], 1, fpopts);
+                    detail::check(cpfloat_fma(&X.v[i], &v[i], &b.v[i], &c.v[i], 1, fpopts), "cpfloat_fma");
                 } else {
-                    cpfloat_fmaf(&X.v[i], &v[i], &b.v[i], &c.v[i], 1, fpopts);
+                    detail::check(cpfloat_fmaf(&X.v[i], &v[i], &b.v[i], &c.v[i], 1, fpopts), "cpfloat_fmaf");
                 }
             }
 
@@ -94,9 +94,9 @@ namespace linalg {
             // for future SIMD optimisation.
             for (std::size_t i = 0; i < N; ++i) {
                 if constexpr (std::is_same_v<T,double>) {
-                    cpfloat_fma(&X, &v[i], &b.v[i], &X, 1, fpopts);
+                    detail::check(cpfloat_fma(&X, &v[i], &b.v[i], &X, 1, fpopts), "cpfloat_fma");
                 } else {
-                    cpfloat_fmaf(&X, &v[i], &b.v[i], &X, 1, fpopts);
+                    detail::check(cpfloat_fmaf(&X, &v[i], &b.v[i], &X, 1, fpopts), "cpfloat_fmaf");
                 }
             }
     
