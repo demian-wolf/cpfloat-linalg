@@ -26,7 +26,7 @@ namespace linalg {
     
     int cpfloat_dot(double *X, const double *A, const double *B,
                     std::size_t numelem, optstruct *fpopts);
-    int cpfloat_dotf(float *result, const float *A, const float *B,
+    int cpfloat_dotf(float *X, const float *A, const float *B,
                     std::size_t numelem, optstruct *fpopts);
 }
 
