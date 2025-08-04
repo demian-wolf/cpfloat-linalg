@@ -23,6 +23,11 @@ namespace linalg {
                     const double *C, std::size_t numelem, optstruct *fpopts);
     int cpfloat_fmaf(float *X, const float *A, const float *B,
                     const float *C, std::size_t numelem, optstruct *fpopts);
+    
+    int cpfloat_dot(double *X, const double *A, const double *B,
+                    std::size_t numelem, optstruct *fpopts);
+    int cpfloat_dotf(float *result, const float *A, const float *B,
+                    std::size_t numelem, optstruct *fpopts);
 }
 
 #endif  /* LINALG_CORE_HPP */
