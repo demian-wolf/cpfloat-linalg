@@ -1,5 +1,5 @@
-#ifndef LINALG_VECTOR_HPP
-#define LINALG_VECTOR_HPP
+#ifndef LINALG_VEC_HPP
+#define LINALG_VEC_HPP
 
 #include <cstddef>
 #include <type_traits>
@@ -105,4 +105,4 @@ namespace linalg {
     };
 }
 
-#endif /* LINALG_VECTOR_HPP */
+#endif /* LINALG_VEC_HPP */
