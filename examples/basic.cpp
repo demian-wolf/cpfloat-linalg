@@ -1,7 +1,7 @@
 #include <linalg_core.hpp>
 
 int main() {
-    linalg::CPFloatOptStructRAII fpopts;
+    linalg::Opt fpopts;
 
     const size_t n = 3;
 
