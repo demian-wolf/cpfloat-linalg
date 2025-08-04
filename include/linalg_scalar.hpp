@@ -1,3 +1,8 @@
+#ifndef LINALG_SCALAR_HPP
+#define LINALG_SCALAR_HPP
+
+#include <cstddef>
+
 #include "linalg_core.hpp"
 
 namespace linalg {
@@ -47,3 +52,5 @@ namespace linalg {
         return cpfloat_dotf(X, A, B, numelem, fpopts);
     }
 }
+
+#endif /* LINALG_SCALAR_HPP */

@@ -39,4 +39,4 @@ namespace linalg {
                     std::size_t numelem, optstruct *fpopts);
 }
 
-#endif  /* LINALG_CORE_HPP */
+#endif /* LINALG_CORE_HPP */
