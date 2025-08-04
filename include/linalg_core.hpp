@@ -2,19 +2,35 @@
 #define LINALG_CORE_HPP
 
 #include <cstddef>
+#include <memory>
 
 extern "C" {
     #include "cpfloat.h" // IWYU pragma: keep
 }
 
 namespace linalg {
-    struct CPFloatOptStructRAII {
-        optstruct *fpopts;
+    struct OptDeleter {
+        void operator()(optstruct *fpopts) { free_optstruct(fpopts); }
+    };
 
-        CPFloatOptStructRAII() : fpopts(init_optstruct()) {}
-        ~CPFloatOptStructRAII() { free_optstruct(fpopts); }
+    class Opt {
+        private:
+            std::unique_ptr<optstruct, OptDeleter> ptr;
 
-        operator optstruct*() { return fpopts;}
+        public:
+            Opt() : ptr(init_optstruct()) {}
+
+            operator optstruct*() { return ptr.get(); }
+            optstruct* get() { return ptr.get(); }
+            const optstruct* get() const { return ptr.get(); }
+
+            // prevent copying [because unique_ptr]
+            Opt(const Opt&) = delete;
+            Opt& operator=(const Opt&) = delete;
+            
+            // allow moving
+            Opt(Opt&&) = default;
+            Opt& operator=(Opt&&) = default;
     };
     
     int cpfloat_add(double *X, const double *A, const double *B,
