@@ -5,6 +5,7 @@
 #include <type_traits>
 
 #include "linalg_core.hpp"
+#include "linalg_check.hpp"
 
 namespace linalg {
     template<std::size_t N, typename T>

@@ -4,6 +4,7 @@
 #include <cstddef>
 
 #include "linalg_core.hpp"
+#include "linalg_check.hpp"
 
 namespace linalg {
     inline double add(double a, double b, optstruct *fpopts) {
@@ -45,13 +46,13 @@ namespace linalg {
     inline double dot(double *X, const double *A, const double *B,
         std::size_t numelem, optstruct *fpopts) {
         detail::check(cpfloat_dot(X, A, B, numelem, fpopts), "cpfloat_dot");
-        return X;
+        return *X;
     }
 
     inline float dot(float *X, const float *A, const float *B,
         std::size_t numelem, optstruct *fpopts) {
         detail::check(cpfloat_dotf(X, A, B, numelem, fpopts), "cpfloat_dotf");
-        return X;
+        return *X;
     }
 }
 
